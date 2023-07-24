@@ -1,0 +1,91 @@
+<div id="overlay">
+  <div class="container">
+    <h3>Sign-in</h3>
+    <form [formGroup]="signInForm">
+      <div class="form-group">
+        <label for="exampleInputEmail">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail"
+          placeholder="Enter email"
+          name="email"
+          formControlName="email"
+          [ngClass]="{
+            'valid-feedback': email.valid && (email.touched || email.dirty),
+            'invalid-feedback': email.invalid && (email.touched || email.dirty)
+          }"
+        />
+        <div
+          class="invalid-feedback-txt"
+          *ngIf="email.errors && (email.touched || email.dirty)"
+        >
+          <p *ngIf="email.errors['required']">Email is required</p>
+          <p *ngIf="email.errors['pattern']">
+            Email should be in proper format
+          </p>
+        </div>
+
+        <!-- <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group mt-3">
+        <label for="exampleInputPassword">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword"
+          placeholder="Password"
+          name="password"
+          formControlName="password"
+          [ngClass]="{
+            'valid-feedback':
+              password.valid && (password.touched || password.dirty),
+            'invalid-feedback':
+              password.invalid && (password.touched || password.dirty)
+          }"
+        />
+      </div>
+      <div
+        class="invalid-feedback-txt mb-4"
+        *ngIf="password.errors && (password.touched || password.dirty)"
+      >
+        <p *ngIf="password.errors['required']">password is required</p>
+        <p *ngIf="password.errors['minlength']">
+          password should contain
+          {{ password.errors["minlength"]["actualLength"] }} character atleast ,
+          you required
+          {{
+            password.errors["minlength"]["requiredLength"] -
+              password.errors["minlength"]["actualLength"]
+          }}
+          more char
+        </p>
+      </div>
+      <br />
+      <div class="btn-group btn-group-lg">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="signInForm.invalid"
+          (click)="loginForm()"
+        >
+          Submit
+        </button>
+        <button class="btn btn-secondary" (click)="resetForm()">clear</button>
+      </div>
+      <!-- Link to Registration page -->
+      <div>
+        <a
+          class="" 
+          [routerLink]="['/Khabar','register']"
+        >
+          Register here
+        </a>
+        
+      </div>
+      <!-- Error message  -->
+      <b class="text-danger">{{ loginError }} </b>
+    </form>
+  </div>
+</div>

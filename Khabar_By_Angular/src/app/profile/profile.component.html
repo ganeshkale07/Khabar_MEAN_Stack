@@ -1,0 +1,36 @@
+ 
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+              <h4>User Profile</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" [value]="profile.username" id="username" placeholder="Enter your username" required disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" [value]="profile.email" id="email" placeholder="Enter your email address" required disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <input type="text" class="form-control" [value]="profile.role" id="role" placeholder="Enter your role" required disabled> 
+                </div>
+                <div class="mb-3">
+                  <label for="created-at" class="form-label">Create Date</label>
+                  <input type="text" class="form-control" [value]="profile.createdAt | date" id="created-at" disabled>
+                </div>
+                <button type="submit" class="btn btn-dark" hidden >Update Profile</button>
+                <button type="submit" class="btn btn-dark" (click)="logOut()">Log Out</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+

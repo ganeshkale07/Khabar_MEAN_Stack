@@ -1,0 +1,35 @@
+.container {
+    border: 2px solid black;
+    /* width: 50%; */
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 15px;
+}
+sup{
+    color: red;
+}
+.suggestion{
+    color: green ;
+    text-transform: capitalize;
+    display: block;
+    margin-top: 10px;
+    background-color: rgb(208, 243, 208);
+    border: 1px solid green;
+    border-radius: 6px ;
+    padding: 0 8px;
+}
+.form-control:focus{
+    box-shadow: none;
+}
+.invalid-feedback {
+    border: 2px solid red;
+    display: block;
+}
+
+.valid-feedback{
+    border: 2px solid green;
+    display: block;
+}
+.invalid-feedback-txt {
+    color: red;
+}

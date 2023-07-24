@@ -1,0 +1,31 @@
+.container {
+    border: 2px solid black;
+    width: 30%;
+    margin: 80px auto;
+    border-radius: 10px;
+    padding: 15px;
+}
+#overlay{
+    background-color: whitesmoke;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.form-control:focus{
+    box-shadow: none;
+}
+.invalid-feedback {
+    border: 2px solid red;
+    display: block;
+}
+
+.valid-feedback{
+    border: 2px solid green;
+    display: block;
+}
+.invalid-feedback-txt {
+    color: red;
+}
+
+

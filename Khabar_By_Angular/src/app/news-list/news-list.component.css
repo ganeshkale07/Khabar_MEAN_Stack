@@ -1,0 +1,43 @@
+.personalize-form-btn{
+    display: block;
+    position: fixed;
+    bottom: 45px;
+    right: 20px;
+    border-radius: 15px;
+}
+svg.bi-emoji-frown{
+    margin: 4px 0 0 5px;
+    background-color: yellow;
+}
+.card{
+    width: 300px;
+    transition: width 1s;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* width: 310px; */
+    transform: scaleZ(1);
+}
+.nav-btn-container{
+    position: relative;
+}
+.nav-btn{
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    font-weight: 900;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 10px;
+}
+.nav-btn:disabled{
+    background-color: gray;
+    pointer-events: none;
+}
+.nav-btn.prev{
+    left: 10px;
+}
+.nav-btn.next{
+    right: 10px;
+}

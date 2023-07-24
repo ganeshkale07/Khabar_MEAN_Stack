@@ -1,0 +1,95 @@
+<div class="container col-sm-offset-4 col-sm-4 col-md-offset-7 col-md-5">
+  <h4>Personalize Your Feed</h4>
+  <form [formGroup]="personalizeForm">
+    <div class="mb-3 mt-3">
+      <label for="country" class="form-label">Country<sup>*</sup> :</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'invalid-feedback':
+            country.invalid && (country.touched || country.dirty),
+          'valid-feedback': country.valid && (country.touched || country.dirty)
+        }"
+        id="email"
+        placeholder="Enter country"
+        formControlName="country"
+        maxlength="2"
+      />
+      <div
+        class="invalid-feedback-txt"
+        *ngIf="country.errors && (country.touched || country.dirty)"
+      >
+        <p *ngIf="country.errors['required']">required (*) field</p>
+        <p *ngIf="country.errors['pattern']">Must be 2 characters</p>
+      </div>
+      <i class="suggestion">
+        <b>Ex :</b> ae |ar |at | au |be |bg |br |ca |ch |cn |co |cu |cz |de |eg
+        |fr |gb |gr |hk |hu |id |ie |il |in |it |jp |kr
+      </i>
+    </div>
+
+    <div class="mb-3">
+      <label for="cat" class="form-label">Category<sup>*</sup> :</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'invalid-feedback': cat.invalid && (cat.touched || cat.dirty),
+          'valid-feedback': cat.valid && (cat.touched || cat.dirty)
+        }"
+        id="pwd"
+        placeholder="Enter Category"
+        formControlName="cat"
+      />
+      <div
+        class="invalid-feedback-txt"
+        *ngIf="cat.errors && (cat.touched || cat.dirty)"
+      >
+        <p *ngIf="cat.errors['required']">required (*) field</p>
+        <p *ngIf="cat.errors['pattern']">Only characters are allowed</p>
+      </div>
+
+      <i class="suggestion">
+        <b>Ex :</b> business | entertainment | general | health | science |
+        sports | technology
+      </i>
+    </div>
+
+    <div class="mb-3">
+      <label for="query" class="form-label">Specific word<sup>*</sup>:</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'invalid-feedback': query.invalid && (query.touched || query.dirty),
+          'valid-feedback': query.valid && (query.touched || query.dirty)
+        }"
+        id="query"
+        placeholder="Enter word"
+        formControlName="query"
+      />
+      <div
+        class="invalid-feedback-txt"
+        *ngIf="query.errors && (query.touched || query.dirty)"
+      >
+        <p *ngIf="query.errors['required']">required (*) field</p>
+      </div>
+    </div>
+
+    <div class="btn-group btn-group-lg">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [routerLink]="['/Khabar', country.value, cat.value, query.value]"
+        [disabled]="personalizeForm.invalid"
+      >
+        Submit
+      </button>
+      <button type="submit" class="btn btn-secondary" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+  </form>
+</div>
+<pre>{{ personalizeForm.controls["country"].value }}</pre>

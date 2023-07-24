@@ -1,0 +1,16 @@
+<div class="container m-5">
+  <div class="row">
+    <div class="col-4">
+      <img
+        class="card-img-top"
+        src="{{ newsDetail?.urlToImage }}"
+        alt="Card image"
+      />
+    </div>
+    <div class="card-body col-8">
+      <h4 class="card-title">{{ newsDetail?.title }}</h4>
+      <p class="card-text">{{ newsDetail?.description }}</p>
+      <a href="{{ newsDetail?.url }}" class="btn btn-dark">View details</a>
+    </div>
+  </div>
+</div>
