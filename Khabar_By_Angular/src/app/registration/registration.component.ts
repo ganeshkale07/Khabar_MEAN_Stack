@@ -2,6 +2,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from "../services/news-api.service";
 import {Router} from "@angular/router";
+import { matchPassword } from "../validators/matchpassword.validators";
 
 @Component({
   selector: 'app-registration',
@@ -30,6 +31,8 @@ export class RegistrationComponent implements OnInit {
       username : this.username,
       password : this.password,
       repeat_password : this.repeat_password,
+    },{
+      validators:matchPassword
     })
   }
 

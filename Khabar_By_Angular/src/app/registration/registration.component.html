@@ -1,6 +1,6 @@
 <div id="overlay">
     <div class="container">
-      <h3>Registrater Youself</h3>
+      <h3>Registrater Youself </h3>
       <form [formGroup]="signInForm">
         <!-- email -->
         <div class="form-group">
@@ -109,6 +109,12 @@
               repeat_password.invalid && (repeat_password.touched || repeat_password.dirty)
             }"
           />
+        </div>
+        <div
+          class="invalid-feedback-txt mb-4"
+          *ngIf="signInForm.errors?.['matchError']"
+        >
+          <p>password should match</p>          
         </div>
         <br />
         <div class="btn-group btn-group-lg">
