@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
      this.newsApi.logOutUser().subscribe({
       next : (data : any) => {
         localStorage.clear();
-        this.route.navigate(['/khabar', 'sign-in']);
+        this.route.navigate(['/Khabar', 'sign-in']);
         alert(data.message);
       },
       error : (error) => alert(error)
