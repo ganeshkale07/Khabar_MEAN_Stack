@@ -28,7 +28,9 @@ export class ProfileComponent implements OnInit {
         this.route.navigate(['/Khabar', 'sign-in']);
         alert(data.message);
       },
-      error : (error) => alert(error)
+      error : (error) => {
+        alert(error.statusText);
+        this.route.navigate(['/Khabar', 'sign-in']);}
     })
   }
 

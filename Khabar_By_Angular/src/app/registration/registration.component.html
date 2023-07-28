@@ -18,7 +18,7 @@
             }"
           />
           <div
-            class="invalid-feedback-txt"
+            class="invalid-feedback-txt text-light"
             *ngIf="email.errors && (email.touched || email.dirty)"
           >
             <p *ngIf="email.errors['required']">Email is required</p>
@@ -46,7 +46,7 @@
             }"
           />
           <div
-            class="invalid-feedback-txt"
+            class="invalid-feedback-txt text-light"
             *ngIf="username.errors && (username.touched || username.dirty)"
           >
             <p *ngIf="username.errors['required']">username is required</p>
@@ -111,7 +111,7 @@
           />
         </div>
         <div
-          class="invalid-feedback-txt mb-4"
+          class="invalid-feedback-txt mb-4 text-light"
           *ngIf="signInForm.errors?.['matchError']"
         >
           <p>password should match</p>          
@@ -129,9 +129,9 @@
           <button class="btn btn-secondary" (click)="resetForm()">clear</button>
         </div>
 
-        <div>
+        <div class="mt-2">
           <a
-            class="" 
+            class="text-dark" 
             [routerLink]="['/Khabar', 'sign-in']"
           >
             Already registered Go to Login page 
@@ -139,7 +139,7 @@
           
         </div>
         <div>
-          <b class="text-danger">{{ registrationError }} </b>
+          <b class="text-light">{{ registrationError }} </b>
         </div>
       </form>
     </div>

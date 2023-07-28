@@ -41,7 +41,7 @@
     >
       <img
         class="card-img-top"
-        src="{{ news.urlToImage }}"
+        src="{{ news.urlToImage ? news.urlToImage : '../../../../assets/image_not_found.png' }}"
         alt="Card image"
         width="200"
         height="200"

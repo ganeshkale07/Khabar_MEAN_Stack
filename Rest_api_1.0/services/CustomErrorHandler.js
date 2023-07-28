@@ -17,7 +17,7 @@ class CustomErrorHandler extends Error {
         //401 authentication error
     }
 
-    static unauthorized(message = "Unauthorized"){
+    static unauthorized(message = "Unauthorized Person "){
         return new CustomErrorHandler(401 , message);
         //401 authentication error
     }

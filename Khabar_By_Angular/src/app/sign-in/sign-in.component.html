@@ -17,7 +17,7 @@
           }"
         />
         <div
-          class="invalid-feedback-txt"
+          class="invalid-feedback-txt text-light"
           *ngIf="email.errors && (email.touched || email.dirty)"
         >
           <p *ngIf="email.errors['required']">Email is required</p>
@@ -47,7 +47,7 @@
         />
       </div>
       <div
-        class="invalid-feedback-txt mb-4"
+        class="invalid-feedback-txt mb-4 text-light"
         *ngIf="password.errors && (password.touched || password.dirty)"
       >
         <p *ngIf="password.errors['required']">password is required</p>
@@ -75,9 +75,9 @@
         <button class="btn btn-secondary" (click)="resetForm()">clear</button>
       </div>
       <!-- Link to Registration page -->
-      <div>
+      <div class="mt-2">
         <a
-          class="" 
+          class="text-dark" 
           [routerLink]="['/Khabar','register']"
         >
           Register here
@@ -85,7 +85,7 @@
         
       </div>
       <!-- Error message  -->
-      <b class="text-danger">{{ loginError }} </b>
+      <b class="text-light">{{ loginError }} </b>
     </form>
   </div>
 </div>
