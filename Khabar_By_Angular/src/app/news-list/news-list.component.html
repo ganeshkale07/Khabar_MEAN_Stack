@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center mt-3" *ngIf="!newsArray['articles']">
+<div class="d-flex justify-content-center mt-3" *ngIf="!newsArray">
   <div class="spinner-border" role="status">
     <span class="sr-only"></span>
   </div>
@@ -10,7 +10,7 @@
 
 <div
   class="d-flex justify-content-center mt-3"
-  *ngIf="newsArray['articles']?.length == 0"
+  *ngIf="newsArray?.length == 0"
 >
   <h5>Sorry No result found !</h5>
   <svg
@@ -32,12 +32,12 @@
 
 <div
   class="container d-flex flex-row justify-content"
-  *ngIf="newsArray['articles']?.length > 0"
+  *ngIf="newsArray.length > 0"
 >
   <div class="d-flex flex-row justify-content-between flex-wrap">
     <div
       class="card m-2"
-      *ngFor="let news of newsArray['articles']; let i = index"
+      *ngFor="let news of newsArray; let i = index"
     >
       <img
         class="card-img-top"
@@ -47,7 +47,7 @@
         height="200"
       />
       <div class="card-body">
-        <h4 class="card-title">{{ news.author ? news.author : "Title" }}</h4>
+        <h4 class="card-title">{{ news.title ? news.title : "Title" }}</h4>
         <p class="card-text">{{ news.content }}</p>
         <p>{{ specificCountry }}</p>
       </div>

@@ -19,7 +19,6 @@ export class NewsDetailsComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle(`Khabar - ${this.specificAreaNews}`);
     if(this.activatedRoute.snapshot.paramMap.get('news_country')){
-      console.log("Hi")
       this.getNewsHeadlineDetails();
     }else{
       this.getNewsDetails();
@@ -34,7 +33,7 @@ export class NewsDetailsComponent implements OnInit {
     this.newsapiService.getNewsApiData(1 , this.specificAreaNews).subscribe({
       next: response => {
         this.newsArray = response;
-        this.newsDetail  = this.newsArray['articles'][this.newsIndex];
+        this.newsDetail  = this.newsArray[this.newsIndex];
         console.log(this.newsDetail)
       },
       error: err => {

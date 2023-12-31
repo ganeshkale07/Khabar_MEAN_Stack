@@ -41,8 +41,10 @@ export class NewsListComponent implements OnInit {
   
       this.newsapiService.getNewsApiData(currentPage , this.specificAreaNews).subscribe({
         next: data => {
+
             this.newsArray = data;
-            this.totalResults =   this.newsArray.totalResults;
+            this.totalResults =   this.newsArray.length;
+            console.log(this.newsArray)
         },
         error: error => {
             console.error('There was an error!', error.message);

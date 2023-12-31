@@ -27,7 +27,7 @@ export class NewsApiService {
     .set('pageSize',20)
     .set('page',page)
     
-    return this.httpClient.get(`https://newsapi.org/v2/everything`, { headers , params} );
+    return this.httpClient.get(`${this.serverBaseUrl}news`, { headers , params} );
   }
 
   //To get filtered headlines
@@ -44,7 +44,7 @@ export class NewsApiService {
     .set('page',page)
 
     
-    return this.httpClient.get(`https://newsapi.org/v2/top-headlines`,{ headers , params });
+    return this.httpClient.get(`${this.serverBaseUrl}news`,{ headers , params });
 
   }
 
