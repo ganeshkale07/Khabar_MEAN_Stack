@@ -24,7 +24,6 @@ const routes: Routes = [
   {
     path : 'Khabar/profile',
     component:ProfileComponent,
-    canActivate : [LoginGuard],
     pathMatch : 'full'
   },
   {

@@ -48,6 +48,7 @@ export class RegistrationComponent implements OnInit {
       next : (data) => {
         if(data){          
           alert("Registered successfully !");
+          this.route.navigate(['/Khabar', 'sign-in']);
           //navigate to login page
           //this.route.navigate(['Khabar','sign-in']);
         } 

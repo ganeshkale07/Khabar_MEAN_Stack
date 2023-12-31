@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from "../services/news-api.service";
 import { User } from "../interfaces/user";
-import { Router } from "@angular/router";
-import { firstValueFrom } from 'rxjs';
+import { NavigationEnd, Router } from "@angular/router";
+import { Observable, catchError, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +10,32 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile !: User ;
+  profile$ : Observable<User | null> = of(null) ;
   profileFetchError: String = '';
 
   constructor(private newsApi:NewsApiService, private route : Router) { }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     //Todo 
     //Cannot read properties of undefined (reading 'username')
-    await firstValueFrom(this.newsApi.verifyLoggedInUser()).then((data) => this.profile = data).catch(error => this.profileFetchError = error) ;
+    //await firstValueFrom(this.newsApi.verifyLoggedInUser()).then((data) => this.profile = data).catch(error => this.profileFetchError = error) ;
+    
+    // this.route.events.subscribe((event) => {
+    //   if(event instanceof NavigationEnd){     
+    //     this.newsApi.verifyLoggedInUser().pipe(
+    //       tap(ele => console.log(ele)),
+    //       tap((data:User) => this.profile = data ),
+    //       catchError((error) => this.profileFetchError = error)
+    //     )
+    //   }
+    // })
+
+   
+    this.profile$ =  this.newsApi.verifyLoggedInUser().pipe(
+      catchError(error => { this.profileFetchError = error ; return of(error)})
+    );
+    
+
   }
 
   logOut() {

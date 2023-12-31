@@ -65,7 +65,7 @@ export class NewsApiService {
   }
 
   //Verify User is loggedIn
-  verifyLoggedInUser(){
+  verifyLoggedInUser():Observable<User>{
     this.access_Token = localStorage['access_token'];
     const headers = new HttpHeaders({
       'Authorization' : "Bearer "+ this.access_Token

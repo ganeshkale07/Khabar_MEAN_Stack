@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router} from '@angular/router';
 import { NewsApiService } from "./services/news-api.service";
-import { firstValueFrom, retry } from 'rxjs';
+import { firstValueFrom, retry, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,7 @@ async canActivate(): Promise<boolean> {
     }).then(() => true )
     .catch(() => false)
     *********/
-
+    this.newsApi.verifyLoggedInUser().pipe(tap(ele => console.log(ele)));
     let isAuthorized = await firstValueFrom(this.newsApi.verifyLoggedInUser())
     .then((data) => {
       if(data){
